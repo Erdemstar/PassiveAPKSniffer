@@ -1,0 +1,147 @@
+[
+  {
+    "key": "Credit_Card",
+    "value": "\\b4[0-9]{12}(?:[0-9]{3})?\\b|\\b5[1-5][0-9]{14}\\b|\\b3[47][0-9]{13}\\b|\\b3(?:0[0-5]|[68][0-9])[0-9]{11}\\b|\\b6(?:011|5[0-9]{2})[0-9]{12}\\b|\\b(?:2131|1800|35\\d{ 3})\\d{11}\\b"
+  },
+  {
+    "key": "Password",
+    "value": "(password|pword|pwd|pass)[]?\\s*[\"|']*\\s*[=|:]\\s*[\"|'|\\s]?[a-z0-9]+[\"|'|\\s]?"
+  },
+  {
+    "key": "Amazon_AWS_Access_Key_ID",
+    "value": "([^A-Z0-9]|^)(AKIA|A3T|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{12,}"
+  },
+  {
+    "key": "Artifactory_API_Token",
+    "value": "(?:\\s|=|:|\"|^)AKC[a-zA-Z0-9]{10,}"
+  },
+  {
+    "key": "Artifactory_Password",
+    "value": "(?:\\s|=|:|\"|^)AP[\\dABCDEF][a-zA-Z0-9]{8,}"
+  },
+  {
+    "key": "Authorization_Basic",
+    "value": "basic\\s[a-zA-Z0-9_\\-:\\.=]+"
+  },
+  {
+    "key": "Authorization_Bearer",
+    "value": "bearer\\s[a-zA-Z0-9_\\-:\\.=]+"
+  },
+  {
+    "key": "AWS_API_Key",
+    "value": "AKIA[0-9A-Z]{16}"
+  },
+  {
+    "key": "Basic_Auth_Credentials",
+    "value": "(?<=:\/\/)[a-zA-Z0-9]+:[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z]+"
+  },
+  {
+    "key": "Cloudinary_Basic_Auth",
+    "value": "cloudinary:\/\/[0-9]{15}:[0-9A-Za-z]+@[a-z]+"
+  },
+  {
+    "key": "DEFCON_CTF_Flag",
+    "value": "O{3}\\{.*\\}"
+  },
+  {
+    "key": "Discord_BOT_Token",
+    "value": "((?:N|M|O)[a-zA-Z0-9]{23}\\.[a-zA-Z0-9-_]{6}\\.[a-zA-Z0-9-_]{27})$"
+  },
+  {
+    "key": "Facebook_Access_Token",
+    "value": "EAACEdEose0cBA[0-9A-Za-z]+"
+  },
+  {
+    "key": "Facebook_ClientID",
+    "value": "[f|F][a|A][c|C][e|E][b|B][o|O][o|O][k|K](.{0,20})?['\"][0-9]{13,17}"
+  },
+  {
+    "key": "Facebook_OAuth",
+    "value": "[f|F][a|A][c|C][e|E][b|B][o|O][o|O][k|K].*['|\"][0-9a-f]{32}['|\"]"
+  },
+  {
+    "key": "Facebook_Secret_Key",
+    "value": "([f|F][a|A][c|C][e|E][b|B][o|O][o|O][k|K]|[f|F][b|B])(.{0,20})?['\"][0-9a-f]{32}"
+  },
+  {
+    "key": "Firebase",
+    "value": "[a-z0-9.-]+\\.firebaseio\\.com"
+  },
+  {
+    "key": "Generic_API_Key",
+    "value": "[a|A][p|P][i|I][_]?[k|K][e|E][y|Y].*['|\"][0-9a-zA-Z]{32,45}['|\"]"
+  },
+  {
+    "key": "Generic_Secret",
+    "value": "[s|S][e|E][c|C][r|R][e|E][t|T].*['|\"][0-9a-zA-Z]{32,45}['|\"]"
+  },
+  {
+    "key": "GitHub",
+    "value": "[g|G][i|I][t|T][h|H][u|U][b|B].*['|\"][0-9a-zA-Z]{35,40}['|\"]"
+  },
+  {
+    "key": "GitHub_Access_Token",
+    "value": "([a-zA-Z0-9_-]*:[a-zA-Z0-9_-]+@github.com*)$"
+  },
+  {
+    "key": "Google_API_Key",
+    "value": "AIza[0-9A-Za-z\\-_]{35}"
+  },
+  {
+    "key": "Google_Cloud_Platform_OAuth",
+    "value": "[0-9]+-[0-9A-Za-z_]{32}\\.apps\\.googleusercontent\\.com"
+  },
+  {
+    "key": "Google_Cloud_Platform_Service_Account",
+    "value": "\"type\": \"service_account\""
+  },
+  {
+    "key": "Google_OAuth_Access_Token",
+    "value": "ya29\\.[0-9A-Za-z\\-_]+"
+  },
+  {
+    "key": "Heroku_API_Key",
+    "value": "[h|H][e|E][r|R][o|O][k|K][u|U].*[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}"
+  },
+  {
+    "key": "IP_Address",
+    "value": "(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])"
+  },
+  {
+    "key": "JSON_Web_Token",
+    "value": "(?i)^((?=.*[a-z])(?=.*[0-9])(?:[a-z0-9_=]+\\.){2}(?:[a-z0-9_\\-\\+\/=]*))$"
+  },
+  {
+    "key": "LinkFinder",
+    "value": "(?:\"|')(((?:[a-zA-Z]{1,10}:\/\/|\/\/)[^\"'\/]{1,}\\.[a-zA-Z]{2,}[^\"']{0,})|((?:\/|\\.\\.\/|\\.\/)[^\"'><,;| *()(%%$^\/\\\\\\[\\]][^\"'><,;|()]{1,})|([a-zA-Z0-9_\\-\/]{1,}\/[a-zA-Z0-9_\\-\/]{1,}\\.(?:[a-zA-Z]{1,4}|action)(?:[\\?|#][^\"|']{0,}|))|([a-zA-Z0-9_\\-\/]{1,}\/[a-zA-Z0-9_\\-\/]{3,}(?:[\\?|#][^\"|']{0,}|))|([a-zA-Z0-9_\\-]{1,}\\.(?:php|asp|aspx|jsp|json|action|html|js|txt|xml)(?:[\\?|#][^\"|']{0,}|)))(?:\"|')"
+  },
+  {
+    "key": "Mac_Address",
+    "value": "(([0-9A-Fa-f]{2}[:]){5}[0-9A-Fa-f]{2}|([0-9A-Fa-f]{2}[-]){5}[0-9A-Fa-f]{2}|([0-9A-Fa-f]{4}[\\.]){2}[0-9A-Fa-f]{4})$"
+  },
+  {
+    "key": "MailChimp_API_Key",
+    "value": "[0-9a-f]{32}-us[0-9]{1,2}"
+  },
+  {
+    "key": "Mailgun_API_Key",
+    "value": "key-[0-9a-zA-Z]{32}"
+  },
+  {
+    "key": "Mailto",
+    "value": "(?<=mailto:)[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9.-]+"
+  },
+  {
+    "key": "Password_in_URL",
+    "value": "[a-zA-Z]{3,10}://[^/\\s:@]{3,20}:[^/\\s:@]{3,20}@.{1,100}[\"'\\s]"
+  },
+  {
+    "key": "PayPal_Braintree_Access_Token",
+    "value": "access_token\\$production\\$[0-9a-z]{16}\\$[0-9a-f]{32}"
+  },
+  {
+    "key": "Picatic_API_Key",
+    "value": "sk_live_[0-9a-z]{32}"
+  }
+
+]
