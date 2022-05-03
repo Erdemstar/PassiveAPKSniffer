@@ -23,6 +23,7 @@ namespace PassiveAPKSniffer.Class
             }
             return false;
         }
+       
         /// <summary>
         /// Take command and run it OS level.
         /// </summary>
@@ -48,6 +49,7 @@ namespace PassiveAPKSniffer.Class
 
 
         }
+       
         /// <summary>
         /// Take jadxPath and apkPath data for preparing OS Command. [OS Command should be checked this step and give dynamic data for filename]
         /// </summary>
@@ -76,6 +78,7 @@ namespace PassiveAPKSniffer.Class
             return exePath + apkName;
 
         }
+       
         /// <summary>
         /// take folder path information after Decompile process is finished and gather all files under folder path. [There is a hardcoded extension control maybe this control can be dynamic with reading external file]
         /// </summary>

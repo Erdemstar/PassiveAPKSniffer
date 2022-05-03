@@ -22,6 +22,7 @@ namespace PassiveAPKSniffer.Class
                 return json;
             }
         }
+       
         /// <summary>
         /// it read all file and every fileline is went for anaylze calling controlLine
         /// </summary>
@@ -48,7 +49,7 @@ namespace PassiveAPKSniffer.Class
                                     filename = file,
                                     linenumber = i.ToString(),
                                     rulename = data.Item1,
-                                    payload = data.Item2
+                                    payload = data.Item2.Trim(),
                                 });
                             }
                             
@@ -93,6 +94,10 @@ namespace PassiveAPKSniffer.Class
             return null;
         }
 
+        /// <summary>
+        /// it take data as a List format and generate json output
+        /// </summary>
+        /// <param name="output"></param>
         public void writeOutput(List<Output> output)
         {
             var exePath = AppDomain.CurrentDomain.BaseDirectory;

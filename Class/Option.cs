@@ -4,7 +4,7 @@ namespace PassiveAPKSniffer.Class
 {
     class Option
     {
-        [Option("jadx_path", Required = false, HelpText = "--jadx_path C:\\Users\\user\\jadx-1.3.5\\bin")]
+        [Option("jadx_path", Required = false, HelpText = "--jadx_path C:\\Users\\user\\jadx-1.3.5\\bin\\jadx.bat")]
         public string jadx_path { get; set; }
 
         [Option("download_jadx", Required = false, Default = false ,HelpText = "--download_jadx")]
