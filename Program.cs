@@ -13,7 +13,11 @@ namespace PassiveAPKSniffer
             Parser.Default.ParseArguments<Option>(args)
                .WithParsed(o =>
                {
-                   if (o.jadx_path is not null)
+                   if (o.download_jadx is true)
+                   {
+                       Core.DownloadFile().GetAwaiter().GetResult();
+                   }
+                   else if (o.jadx_path is not null)
                    {
                        if (o.apk_path is not null)
                        {
@@ -24,21 +28,20 @@ namespace PassiveAPKSniffer
                            else
                            {
                                Console.WriteLine(Strings.rulesNotFound);
+                               Environment.Exit(-1);
                            }
                        }
                        else
                        {
                            Console.WriteLine(Strings.apkNotFound);
+                           Environment.Exit(-1);
                        }
 
                    }
                    else
                    {
-                       Console.WriteLine(Strings.jadxNotFound);
-                   }
-                   if (o.download_jadx == "yes")
-                   {
-                       //jadx download
+                       Console.WriteLine(Strings.helpMessage);
+                       Environment.Exit(-1);
                    }
 
                });

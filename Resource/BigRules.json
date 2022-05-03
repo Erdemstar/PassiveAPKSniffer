@@ -4,6 +4,10 @@
     "value": "\\b4[0-9]{12}(?:[0-9]{3})?\\b|\\b5[1-5][0-9]{14}\\b|\\b3[47][0-9]{13}\\b|\\b3(?:0[0-5]|[68][0-9])[0-9]{11}\\b|\\b6(?:011|5[0-9]{2})[0-9]{12}\\b|\\b(?:2131|1800|35\\d{ 3})\\d{11}\\b"
   },
   {
+    "key": "Web_Url",
+    "value": "^http(s)?://([\\w-]+.)+[\\w-]+(/[\\w- ./?%&=])?$"
+  },
+  {
     "key": "Password",
     "value": "(password|pword|pwd|pass)[]?\\s*[\"|']*\\s*[=|:]\\s*[\"|'|\\s]?[a-z0-9]+[\"|'|\\s]?"
   },
@@ -112,10 +116,6 @@
     "value": "(?i)^((?=.*[a-z])(?=.*[0-9])(?:[a-z0-9_=]+\\.){2}(?:[a-z0-9_\\-\\+\/=]*))$"
   },
   {
-    "key": "LinkFinder",
-    "value": "(?:\"|')(((?:[a-zA-Z]{1,10}:\/\/|\/\/)[^\"'\/]{1,}\\.[a-zA-Z]{2,}[^\"']{0,})|((?:\/|\\.\\.\/|\\.\/)[^\"'><,;| *()(%%$^\/\\\\\\[\\]][^\"'><,;|()]{1,})|([a-zA-Z0-9_\\-\/]{1,}\/[a-zA-Z0-9_\\-\/]{1,}\\.(?:[a-zA-Z]{1,4}|action)(?:[\\?|#][^\"|']{0,}|))|([a-zA-Z0-9_\\-\/]{1,}\/[a-zA-Z0-9_\\-\/]{3,}(?:[\\?|#][^\"|']{0,}|))|([a-zA-Z0-9_\\-]{1,}\\.(?:php|asp|aspx|jsp|json|action|html|js|txt|xml)(?:[\\?|#][^\"|']{0,}|)))(?:\"|')"
-  },
-  {
     "key": "Mac_Address",
     "value": "(([0-9A-Fa-f]{2}[:]){5}[0-9A-Fa-f]{2}|([0-9A-Fa-f]{2}[-]){5}[0-9A-Fa-f]{2}|([0-9A-Fa-f]{4}[\\.]){2}[0-9A-Fa-f]{4})$"
   },
@@ -142,6 +142,58 @@
   {
     "key": "Picatic_API_Key",
     "value": "sk_live_[0-9a-z]{32}"
+  },
+  {
+    "key": "Slack_Token",
+    "value": "(xox[p|b|o|a]-[0-9]{12}-[0-9]{12}-[0-9]{12}-[a-z0-9]{32})"
+  },
+  {
+    "key": "Slack_Webhook",
+    "value": "https://hooks.slack.com/services/T[a-zA-Z0-9_]{8}/B[a-zA-Z0-9_]{8}/[a-zA-Z0-9_]{24}"
+  },
+  {
+    "key": "Square_Access_Token",
+    "value": "sq0atp-[0-9A-Za-z\\-_]{22}"
+  },
+  {
+    "key": "Square_OAuth_Secret",
+    "value": "sq0csp-[0-9A-Za-z\\-_]{43}"
+  },
+  {
+    "key": "Stripe_API_Key",
+    "value": "sk_live_[0-9a-zA-Z]{24}"
+  },
+  {
+    "key": "Stripe_Restricted_API_Key",
+    "value": "rk_live_[0-9a-zA-Z]{24}"
+  },
+  {
+    "key": "Twilio_API_Key",
+    "value": "SK[0-9a-fA-F]{32}"
+  },
+  {
+    "key": "Twitter_Access_Token",
+    "value": "[t|T][w|W][i|I][t|T][t|T][e|E][r|R].*[1-9][0-9]+-[0-9a-zA-Z]{40}"
+  },
+  {
+    "key": "Twitter_ClientID",
+    "value": "[t|T][w|W][i|I][t|T][t|T][e|E][r|R](.{0,20})?['\"][0-9a-z]{18,25}"
+  },
+  {
+    "key": "Twitter_OAuth",
+    "value": "[t|T][w|W][i|I][t|T][t|T][e|E][r|R].*['|\"][0-9a-zA-Z]{35,44}['|\"]"
+  },
+  {
+    "key": "Twitter_Secret_Key",
+    "value": "[t|T][w|W][i|I][t|T][t|T][e|E][r|R](.{0,20})?['\"][0-9a-z]{35,44}"
+  },
+  {
+    "key": "",
+    "value": ""
+  },
+  {
+    "key": "",
+    "value": ""
   }
 
 ]

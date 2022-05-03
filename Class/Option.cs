@@ -1,9 +1,4 @@
 ﻿using CommandLine;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PassiveAPKSniffer.Class
 {
@@ -12,8 +7,8 @@ namespace PassiveAPKSniffer.Class
         [Option("jadx_path", Required = false, HelpText = "--jadx_path C:\\Users\\user\\jadx-1.3.5\\bin")]
         public string jadx_path { get; set; }
 
-        [Option("download_jadx", Required = false, HelpText = "--download_jadx yes")]
-        public string download_jadx { get; set; }
+        [Option("download_jadx", Required = false, Default = false ,HelpText = "--download_jadx")]
+        public bool download_jadx { get; set; }
         
         [Option("apk_path", Required = false, HelpText = "--apk_path C:\\Users\\user\\vuln.apk")]
         public string apk_path { get; set; }

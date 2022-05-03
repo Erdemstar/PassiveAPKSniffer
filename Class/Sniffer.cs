@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace PassiveAPKSniffer.Class
 {
     class Sniffer
     {
         /// <summary>
-        /// 
+        /// it basicly read Rules file.
         /// </summary>
         /// <param name="Path"></param>
         /// <returns></returns>
@@ -26,22 +23,36 @@ namespace PassiveAPKSniffer.Class
             }
         }
         /// <summary>
-        /// 
+        /// it read all file and every fileline is went for anaylze calling controlLine
         /// </summary>
         /// <param name="filePath"></param>
         /// <param name="rules"></param>
-        public void readFiles(IEnumerable<string> filePath, List<Rules> rules)
+        public List<Output> readFiles(IEnumerable<string> filePath, List<Rules> rules)
         {
+            List<Output> list = new List<Output>();
             try
             {
                 foreach (var file in filePath)
                 {
                     using (StreamReader ReaderObject = new StreamReader(file))
                     {
+                        int i = 1;
                         string Line;
                         while ((Line = ReaderObject.ReadLine()) != null)
                         {
-                            controlLine(Line, rules);
+                            var data = controlLine(Line, rules);
+                            if (data is not null)
+                            {
+                                list.Add(new Output()
+                                {
+                                    filename = file,
+                                    linenumber = i.ToString(),
+                                    rulename = data.Item1,
+                                    payload = data.Item2
+                                });
+                            }
+                            
+                            i++;
                         }
                     }
                 }
@@ -50,38 +61,47 @@ namespace PassiveAPKSniffer.Class
             {
 
             }
+
+
+            return list;
         }
 
         /// <summary>
-        /// 
+        /// it basicly take line and rules then control there is a secret or not for using regex.
         /// </summary>
         /// <param name="codeline"></param>
         /// <param name="rules"></param>
-        public void controlLine(string codeline, List<Rules> rules)
+        public Tuple<string,string> controlLine(string codeline, List<Rules> rules)
         {
             //regex loop
-            foreach (var regex in rules)
+            foreach (var rule in rules)
             {
-                //find regex in file loop
-                foreach (Match match in Regex.Matches(codeline, regex.value, RegexOptions.IgnoreCase))
+                Regex regex = new Regex(rule.value, RegexOptions.IgnoreCase);
+                Match match = regex.Match(codeline);
+
+                if (match.Success && match.Groups.Count > 0)
                 {
-                    if (match.Success && match.Groups.Count > 0)
+                    // Value may be more than maxResponseSize and it false positive. So i write a little controll
+                    if (codeline.Length < 300)
                     {
-                        // Value may be more than maxResponseSize and it false positive. So i write a little controll
-                        if (codeline.Length < 300) {
-
-                            Console.WriteLine("Rule :" + regex.key + " " + "Data : " + codeline);
-
-                        }
-
+                        return Tuple.Create(rule.key, codeline);
                     }
+
                 }
 
             }
+            return null;
+        }
+
+        public void writeOutput(List<Output> output)
+        {
+            var exePath = AppDomain.CurrentDomain.BaseDirectory;
+            string json = JsonSerializer.Serialize(output);
+            File.WriteAllText(exePath + "/PassiveAPKSniffer-output.json", json);
         }
 
         /// <summary>
-        /// 
+        /// this is like a main function.
         /// </summary>
         /// <param name="filePath"></param>
         /// <param name="rulePath"></param>
@@ -94,7 +114,13 @@ namespace PassiveAPKSniffer.Class
                 Environment.Exit(-1);
             }
 
-            readFiles(filePath,rules);
+            var output = readFiles(filePath, rules);
+            if (output is not null)
+            {
+                writeOutput(output);
+            }
+
+            Console.WriteLine(Strings.info + Strings.finish);
 
         }
 
